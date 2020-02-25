@@ -1,0 +1,1 @@
+Модуль Last Guest позволяет отображать последние записи компонента PhocaGuestBook CMS Joomla.
