@@ -1,0 +1,67 @@
+<extension
+    type="module"
+    version="1.0"
+    client="site">
+    <name>Последние записи Phoca GuestBook</name>
+    <author>Ivanov Alexey</author>
+    <creationDate>June 2016</creationDate>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>admin@ivacms.ru</authorEmail>
+    <authorUrl>ivacms.ru</authorUrl>
+    <version>1.0.0</version>
+    <description>Модуль выводит последние записи компонента Phoca Guest Book</description>
+    <files>
+        <filename module="mod_guest">mod_guest.php</filename>
+		<filename>helper.php</filename>
+        <filename>index.html</filename>
+        <folder>tmpl</folder>
+		<filename>tmpl/list.php</filename>
+		<filename>tmpl/block.php</filename>
+    </files>
+    <languages>
+        <language tag="ru-RU">language/ru-RU/ru-RU.mod_guest.ini</language>
+		<language tag="ru-RU">language/ru-RU/ru-RU.mod_guest.sys.ini</language>
+    </languages>
+    
+    <config>
+	
+		<param name="jtsqlfield" type="sql" default="10" label="MOD_GUEST_TYPE" query="SELECT id as value,title as jtsqlfield  FROM #__categories where `extension`='com_phocaguestbook'" key_field="id" value_field="title" />
+	
+        <fields name="params">
+            <fieldset name="basic">		
+				<field name="type" type="sql" query="SELECT id,title FROM #__categories where `extension`='com_phocaguestbook'" key_field="id" value_field="title" label="MOD_GUEST_TYPE">
+					<option value="0">-</option>
+				</field>
+		
+				<field name="spec" multiple="true" type="sql" query="SELECT id,title FROM `#__phocaguestbook_items` where `title` !='root' order by id desc" key_field="id" value_field="title" label="MOD_GUEST_SPEC">
+				</field>	
+			
+				<field name="sort" type="list" default="0" label="MOD_GUEST_SORT" description="MOD_GUEST_SORT">
+					<option value="date desc">MOD_GUEST_SORT_DEFAULT</option>
+					<option value="date ASC">MOD_GUEST_SORT_DATE</option>
+					<option value="id desc">MOD_GUEST_SORT_ID</option>
+					<option value="rand()">MOD_GUEST_SORT_RAND</option>
+				</field>
+				
+				<field name="template" type="list" default="list" label="MOD_GUEST_TEMPLATE" description="MOD_GUEST_TEMPLATE">
+					<option value="list">MOD_GUEST_TEMPLATE_LIST</option>
+					<option value="block">MOD_GUEST_TEMPLATE_BLOCK</option>
+				</field>
+				
+                <field name="limit" type="text" default="6" label="MOD_GUEST_LIMIT" description="" size="30" />
+				<field name="col" type="text" default="0" label="MOD_GUEST_COL" description="" size="30" />
+				<field name="striptag" type="checkbox" default="" label="MOD_GUEST_STRIP" description="" />
+				<field name="symb" type="text" default="..." label="MOD_GUEST_SYMB" description="" />
+				<field name="spacer" type="spacer" label="-" class="inputbox"/>			
+				<field name="img" type="checkbox" default="" label="MOD_GUEST_IMG" description="" />
+				<field name="img_width" type="text" default="100" label="MOD_GUEST_IMG_WIDTH" description="" />
+				<field name="img_width" type="text" default="100" label="MOD_GUEST_IMG_WIDTH" description="" />
+				<field name="img_class" type="text" default="" label="MOD_GUEST_IMG_CLASS" description=""/>
+				<field name="spacer2" type="spacer" label="-" class="inputbox"/>	
+				<field name="button" type="checkbox" default="" label="MOD_GUEST_BUTTON" description="" />
+				<field name="button_name" type="text" default="" label="MOD_GUEST_BUTTON_NAME" description="" />
+				<field name="button_link" type="text" default="" label="MOD_GUEST_BUTTON_LINK" description="" />			
+            </fieldset>
+		</fields>
+    </config>
+</extension>

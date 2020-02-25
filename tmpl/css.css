@@ -1,0 +1,34 @@
+.ivacms_last_guest .subject{
+font-weight:bold;
+padding-bottom:10px;
+}
+.ivacms_last_guest .uk-button{
+	padding:10px;
+	background-color:#ccc;
+	clear:both;
+}
+.ivacms_last_guest ul{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+}
+.ivacms_last_guest .subject{
+
+}
+.ivacms_last_guest .button_all{
+	clear: both;
+	margin-top: 10px;
+}
+.ivacms_last_guest ul li {
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+.ivacms_last_guest .button{
+padding:10px;
+}
+/*
+.ivacms_last_guest.block .image img{
+border-radius:50%;
+}
+*/
